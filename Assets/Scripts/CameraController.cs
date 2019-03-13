@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    	spaceship = GameObject.Find("Spaceship");
         offset = transform.position - spaceship.transform.position;
     }
 

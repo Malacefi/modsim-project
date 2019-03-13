@@ -5,20 +5,20 @@ using UnityEngine;
 public class SpaceshipController : MonoBehaviour
 {
 
-	private Rigidbody2D body;
+	private Rigidbody body;
     private float rotation;
 
     // Start is called before the first frame update
     void Start()
     {
-    	body = GetComponent<Rigidbody2D>();
+    	body = GetComponent<Rigidbody>();
     }
 
     // Physics update
     void FixedUpdate(){
     	float moveHorizontal = Input.GetAxis("Horizontal");
     	float moveVertical = Input.GetAxis("Vertical");
-    	Vector2 movement = new Vector2(0, moveVertical);
+        Vector3 movement = new Vector3(0, moveVertical, 0);//(0, moveVertical);
 
         if(moveHorizontal>0)
         {
