@@ -18,15 +18,19 @@ public class SpaceshipController : MonoBehaviour
     void FixedUpdate(){
     	float moveHorizontal = Input.GetAxis("Horizontal");
     	float moveVertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(0, moveVertical, 0);//(0, moveVertical);
+        //Vector3 movement = new Vector3(0, moveVertical, 0);//(0, moveVertical);
+
+        float movementSpeed = -5;
+
+        Vector2 movement = transform.forward * moveVertical * movementSpeed;
 
         if(moveHorizontal>0)
         {
-            rotation += (float)0.2;
+            rotation -= (float)0.02;
         }
         if(moveHorizontal<0)
         {
-            rotation -= (float)0.2;
+            rotation += (float)0.02;
         }
         transform.Rotate(0, 0, rotation, Space.Self);
         /*
