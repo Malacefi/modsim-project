@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectRadius: 200
-  gravityStrength: 1
+  gravityStrength: 3
 --- !u!4 &542327611
 Transform:
   m_ObjectHideFlags: 0

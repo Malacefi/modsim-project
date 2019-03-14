@@ -20,9 +20,9 @@ public class SpaceshipController : MonoBehaviour
     	float moveVertical = Input.GetAxis("Vertical");
         //Vector3 movement = new Vector3(0, moveVertical, 0);//(0, moveVertical);
 
-        float movementSpeed = -5;
+        float movementSpeed = -3;
 
-        Vector2 movement = transform.forward * moveVertical * movementSpeed;
+        Vector3 movement = transform.up * moveVertical * movementSpeed;
 
         if(moveHorizontal>0)
         {
