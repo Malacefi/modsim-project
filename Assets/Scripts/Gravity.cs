@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
-    private Rigidbody body;
     public int affectRadius = 200;
-    public float gravityStrength = 9.82f;
+    //change gravityStrength for different sized planetoids on a case-by-case basis
+    public float gravityStrength = 10f;
 
     private void Start()
     {
-        body = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frames
+    // Update is called once per frame
     void Update()
     {
         foreach(Collider collider in Physics.OverlapSphere(transform.position, affectRadius))
         {
             //direction of the force
-            Vector3 force = transform.position-collider.transform.position;
+            Vector3 force = transform.position - collider.transform.position;
 
             //distance between the objects
             float objectDistance = Vector3.Distance(collider.transform.position, transform.position);
 
             //apply the force
-            collider.attachedRigidbody.AddForce(force.normalized * gravityStrength / objectDistance);
+            collider.attachedRigidbody.AddForce(force.normalized * (gravityStrength*0.1f) / objectDistance);
         }
     }
 }
