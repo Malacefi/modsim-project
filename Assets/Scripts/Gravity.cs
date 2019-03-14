@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
-    public int affectRadius = 200;
+    private SphereCollider ownCollider;
+    private float radius;
+
+    public int affectRadius = 1000;
     //change gravityStrength for different sized planetoids on a case-by-case basis
     public float gravityStrength = 10f;
+    
 
     private void Start()
     {
+        ownCollider = GetComponent<SphereCollider>();
+        radius = ownCollider.radius;
     }
 
     // Update is called once per frame
@@ -24,7 +30,7 @@ public class Gravity : MonoBehaviour
             float objectDistance = Vector3.Distance(collider.transform.position, transform.position);
 
             //apply the force
-            collider.attachedRigidbody.AddForce(force.normalized * (gravityStrength*0.1f) / objectDistance);
+            collider.attachedRigidbody.AddForce(force.normalized * (gravityStrength * 0.1f) / (objectDistance - radius));
         }
     }
 }
