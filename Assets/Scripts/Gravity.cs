@@ -21,6 +21,19 @@ public class Gravity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        CapsuleCollider collider = player.GetComponent<CapsuleCollider>();
+
+        //direction of the force
+        Vector3 force = transform.position - collider.transform.position;
+
+        //distance between the objects
+        float objectDistance = Vector3.Distance(collider.transform.position, transform.position);
+
+        //apply the force
+        collider.attachedRigidbody.AddForce(force.normalized * Mathf.Abs((gravityStrength * 0.1f) / (objectDistance - radius)));
+
+        /*
         foreach(Collider collider in Physics.OverlapSphere(transform.position, affectRadius))
         {
             //direction of the force
@@ -31,6 +44,6 @@ public class Gravity : MonoBehaviour
 
             //apply the force
             collider.attachedRigidbody.AddForce(force.normalized * (gravityStrength * 0.1f) / (objectDistance - radius));
-        }
+        }*/
     }
 }
