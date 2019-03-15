@@ -606,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectRadius: 1000
-  gravityStrength: 30
+  gravityStrength: 4
 --- !u!4 &542327611
 Transform:
   m_ObjectHideFlags: 0
@@ -965,6 +965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spaceship: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!1 &793184896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,7 +1181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   affectRadius: 1000
-  gravityStrength: 24
+  gravityStrength: 5
 --- !u!4 &1083146267
 Transform:
   m_ObjectHideFlags: 0
